@@ -2,7 +2,6 @@ create database total;
 
 use total;
 
-
 --create table
 
 create table veiculos(
@@ -141,3 +140,21 @@ insert into abasteciimentos(Operador_Fk, Veiculo_Fk, Bomba_Fk, Litro) values(@Op
 exec abastecimento_veiculo @Operador_Fk = 1, @veiulo_Fk = 1, @bomba_Fk = 2, @litro= '30L'
 
 select * from abasteciimentos;
+
+
+ 
+ create procedure abastecimento (@Operador_Fk smallint, @matricula varchar(50), @bomba_Fk smallint, @litro varchar(50))
+as
+	declare @select varchar(60)
+
+	  select @select=Matricula from veiculos where Matricula = @matricula
+if  @select =  @matricula
+	begin
+		select * from veiculos
+	end
+else
+	begin
+		insert into abasteciimentos(Operador_Fk,Bomba_Fk, Litro) values(@Operador_Fk,@bomba_Fk, @litro)
+	end
+
+exec abastecimento @Operador_Fk = 1, @matricula = '556-97987-LA', @bomba_Fk = 2, @litro= '30L'
