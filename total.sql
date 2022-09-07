@@ -121,8 +121,8 @@ operadores.Primeiro_Nome,
 operadores.Telefone,
 veiculos.Matricula, 
 veiculos.Modelo,
-bombas.Numero,
-tipos_combustiveis.Nome
+bombas.Numero as Bomba,
+tipos_combustiveis.Nome as Combustivel
 from abasteciimentos 
 join operadores
 on operadores.ID = abasteciimentos.Operador_Fk
