@@ -36,10 +36,13 @@ else
 	exec sp_columns tasks
 
 declare @valor int
-set @valor = 10
+set @valor = 0
 
-while @valor <10
+while @valor < 10
 	begin
 		print 'Número: ' + cast(@valor as varchar(2))
-		set @valor = @valor +1
+		set @valor = @valor + 1
+		insert into empployes(FirstName, LastName) values('Jorge', 'Neves')
 	end
+
+select * from empployes;
