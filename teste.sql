@@ -20,4 +20,26 @@ create table tasks(
 	updated_at datetime
 )
 
+select @@SERVERNAME
+select @@LANGUAGE
+select @@LANGID
+select @@TRANCOUNT
 
+if @@LANGUAGE <> 'Português (Brasil)'
+	select 'Today is' + DATENAME(WEEKDAY,GETDATE())
+else
+	select 'Hoje é' + DATENAME(WEEKDAY,GETDATE())
+
+if OBJECT_ID('tasks','U') is null
+	select 'Esta tabela não existe'
+else
+	exec sp_columns tasks
+
+declare @valor int
+set @valor = 10
+
+while @valor <10
+	begin
+		print 'Número: ' + cast(@valor as varchar(2))
+		set @valor = @valor +1
+	end
