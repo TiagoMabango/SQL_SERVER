@@ -23,7 +23,6 @@ insert into veiculos(Marca, Modelo, Matricula) values('Toyota','Hiunday2','11-22
 
 select * from veiculos
 
-
 --create table
 
 create table tipos_combustiveis(
@@ -79,7 +78,7 @@ create table operadores(
 
 --insert
 
-insert into operadores(Primeiro_Nome, Ultimo_Nome, Telefone, Enderenco) values('Eurico','Vissanço', '+2449374678756', 'Viana')
+insert into operadores(Primeiro_Nome, Ultimo_Nome, Telefone, Enderenco) values('Eurico','Vissanï¿½o', '+2449374678756', 'Viana')
 insert into operadores(Primeiro_Nome, Ultimo_Nome, Telefone, Enderenco) values('Tiago','Mabango', '+2449374678756', 'Petrangol')
 
 --select

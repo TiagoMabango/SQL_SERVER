@@ -38,11 +38,23 @@ else
 declare @valor int
 set @valor = 0
 
-while @valor < 10
+while @valor < = 2
 	begin
-		print 'Número: ' + cast(@valor as varchar(2))
-		set @valor = @valor + 1
-		insert into empployes(FirstName, LastName) values('Jorge', 'Neves')
+		insert into empployes(FirstName, LastName) values('Tiago','Neves')
 	end
 
+
+insert into empployes(FirstName, LastName) values('Bruno','Neves')
+
 select * from empployes;
+
+drop table empployes
+
+BEGIN TRANSACTION
+	delete from empployes
+commit
+
+BEGIN TRANSACTION
+	delete from empployes
+rollback
+
