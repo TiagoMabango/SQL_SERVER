@@ -19,3 +19,5 @@ create table tasks(
 	Created_at datetime default current_timestamp,
 	updated_at datetime
 )
+
+
