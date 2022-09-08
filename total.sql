@@ -140,21 +140,30 @@ insert into abasteciimentos(Operador_Fk, Veiculo_Fk, Bomba_Fk, Litro) values(@Op
 exec abastecimento_veiculo @Operador_Fk = 1, @veiulo_Fk = 1, @bomba_Fk = 2, @litro= '30L'
 
 select * from abasteciimentos;
-
-
  
- create procedure abastecimento (@Operador_Fk smallint, @matricula varchar(50), @bomba_Fk smallint, @litro varchar(50))
+ alter procedure abastecimento (@Operador_Fk smallint, @matricula varchar(50), @bomba_Fk smallint, @litro varchar(50))
 as
 	declare @select varchar(60)
 
 	  select @select=Matricula from veiculos where Matricula = @matricula
 if  @select =  @matricula
 	begin
+
 		select * from veiculos
+		insert into abasteciimentos(Operador_Fk,Bomba_Fk, Litro, Veiculo_Fk) 
+		select @Operador_Fk, @bomba_Fk, @litro, ID from veiculos where Matricula = @matricula
+
 	end
 else
 	begin
-		insert into abasteciimentos(Operador_Fk,Bomba_Fk, Litro) values(@Operador_Fk,@bomba_Fk, @litro)
+
+		insert into veiculos(Marca, Modelo, Matricula) values('Toyota','Hiunday', @matricula);
 	end
 
-exec abastecimento @Operador_Fk = 1, @matricula = '556-97987-LA', @bomba_Fk = 2, @litro= '30L'
+
+
+exec abastecimento @Operador_Fk = 1, @matricula = '12-46783-LA', @bomba_Fk = 2, @litro= '80L'
+
+
+insert into abasteciimentos(Operador_Fk,Bomba_Fk, Litro) 
+		select 1, 2, '60L' from veiculos where Matricula = '12-453-LA'
