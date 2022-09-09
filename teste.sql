@@ -1,4 +1,4 @@
-create database teste
+clcreate database teste
 
 use teste
 
@@ -25,13 +25,13 @@ select @@LANGUAGE
 select @@LANGID
 select @@TRANCOUNT
 
-if @@LANGUAGE <> 'Português (Brasil)'
-	select 'Today is' + DATENAME(WEEKDAY,GETDATE())
+if @@LANGUAGE <> 'Portuguï¿½s (Brasil)'
+	select 'Today is ' + DATENAME(WEEKDAY,GETDATE())
 else
-	select 'Hoje é' + DATENAME(WEEKDAY,GETDATE())
+	select 'Hoje ï¿½ ' + DATENAME(WEEKDAY,GETDATE())
 
 if OBJECT_ID('tasks','U') is null
-	select 'Esta tabela não existe'
+	select 'Esta tabela nï¿½o existe'
 else
 	exec sp_columns tasks
 
@@ -43,8 +43,7 @@ while @valor < = 2
 		insert into empployes(FirstName, LastName) values('Tiago','Neves')
 	end
 
-
-insert into empployes(FirstName, LastName) values('Bruno','Neves')
+insert into empployes(FirstName, LastName) values('','')
 
 select * from empployes;
 
@@ -57,4 +56,3 @@ commit
 BEGIN TRANSACTION
 	delete from empployes
 rollback
-
