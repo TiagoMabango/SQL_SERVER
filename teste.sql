@@ -1,5 +1,6 @@
-clcreate database teste
+create database teste
 
+drop database teste;
 use teste
 
 create table empployes(
@@ -25,13 +26,13 @@ select @@LANGUAGE
 select @@LANGID
 select @@TRANCOUNT
 
-if @@LANGUAGE <> 'Portuguï¿½s (Brasil)'
+if @@LANGUAGE <> 'Português (Brasil)'
 	select 'Today is ' + DATENAME(WEEKDAY,GETDATE())
 else
-	select 'Hoje ï¿½ ' + DATENAME(WEEKDAY,GETDATE())
+	select 'Hoje é ' + DATENAME(WEEKDAY,GETDATE())
 
 if OBJECT_ID('tasks','U') is null
-	select 'Esta tabela nï¿½o existe'
+	select 'Esta tabela não existe'
 else
 	exec sp_columns tasks
 
@@ -40,10 +41,11 @@ set @valor = 0
 
 while @valor < = 2
 	begin
-		insert into empployes(FirstName, LastName) values('Tiago','Neves')
+		set @valor = @valor + 1
+		insert into empployes(FirstName, LastName) values('Tiago'+ CAST(@valor as varchar(2)),'Neves')
 	end
 
-insert into empployes(FirstName, LastName) values('','')
+insert into empployes(FirstName, LastName) select 'Tiago', 'Mabango'
 
 select * from empployes;
 
