@@ -53,11 +53,12 @@ create table alunos(
 	data_actualizacao datetime
 )
 
+select * from alunos
 
 insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
 insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
 insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
-insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
+insert into alunos(nome, cpf, email, telefone, data_nascimento) values('J','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
 insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
 insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
 insert into alunos(nome, cpf, email, telefone, data_nascimento) values('Tiago','98734Hl98','tiago@gmail.com','945454545','07/02/2001')
@@ -94,10 +95,19 @@ create table matriculas(
 	data_actualizacao datetime
 )
 
+select * from matriculas;
 
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,3, '10/8/2022')
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,3, '10/8/2022')
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,3, '10/8/2022')
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,3, '10/8/2022')
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,3, '10/8/2022')
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,3, '10/8/2022')
+insert into matriculas(aluno_fk, turma_fk, data_matricula) values(2,2, '10/8/2022')
+insert into matriculas(aluno_fk, turma_fk, data_matricula) values(2,2, '10/8/2022')
+
+
+create procedure ListaAlunos
+as
+begin
+	select   matriculas.aluno_fk as Id, alunos.nome  as Nome ,  count( turmas.cursos_fk ) as TotalDeCursos  from matriculas 
+	join turmas on matriculas.turma_fk = turmas.id 
+	join alunos on matriculas.aluno_fk = alunos.id 
+	 group by matriculas.aluno_fk, alunos.nome   ,  ( turmas.cursos_fk );
+ end
+
+ exec ListaAlunos
