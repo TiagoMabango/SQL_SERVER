@@ -100,7 +100,6 @@ select * from matriculas;
 insert into matriculas(aluno_fk, turma_fk, data_matricula) values(2,2, '10/8/2022')
 insert into matriculas(aluno_fk, turma_fk, data_matricula) values(2,2, '10/8/2022')
 
-
 create procedure ListaAlunos
 as
 begin
@@ -111,3 +110,7 @@ begin
  end
 
  exec ListaAlunos
+
+ backup database escola
+	to disk = 'C:\Arquivos\escola.bak';
+go
