@@ -97,16 +97,20 @@ create table matriculas(
 
 select * from matriculas;
 
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(2,2, '10/8/2022')
-insert into matriculas(aluno_fk, turma_fk, data_matricula) values(2,2, '10/8/2022')
+insert into matriculas(aluno_fk, turma_fk, data_matricula) values(4,2, '10/8/2022')
+insert into matriculas(aluno_fk, turma_fk, data_matricula) values(4,2, '10/8/2022')
 
-create procedure ListaAlunos
+insert into matriculas(aluno_fk, turma_fk, data_matricula) values(1,2, '10/8/2022')
+insert into matriculas(aluno_fk, turma_fk, data_matricula) values(3,2, '10/8/2022')
+
+alter procedure ListaAlunos
 as
 begin
-	select   matriculas.aluno_fk as Id, alunos.nome  as Nome ,  count( turmas.cursos_fk ) as TotalDeCursos  from matriculas 
-	join turmas on matriculas.turma_fk = turmas.id 
+	select   matriculas.aluno_fk as Id, alunos.nome  as Nome ,  count( turmas.cursos_fk ) as TotalDeCursos  , cursos.nome as NomeDoCurso from matriculas 
+	join turmas on matriculas.turma_fk = turmas.id
 	join alunos on matriculas.aluno_fk = alunos.id 
-	 group by matriculas.aluno_fk, alunos.nome   ,  ( turmas.cursos_fk );
+	join cursos on turmas.cursos_fk = cursos.id
+	 group by matriculas.aluno_fk, alunos.nome   ,  ( turmas.cursos_fk ), cursos.nome;
  end
 
  exec ListaAlunos
@@ -114,3 +118,9 @@ begin
  backup database escola
 	to disk = 'C:\Arquivos\escola.bak';
 go
+
+begin transaction teste
+	update matriculas set  turma_fk = 1 where id = 2;
+rollback;
+
+select * from matriculas  where id = 2;
