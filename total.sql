@@ -161,7 +161,7 @@ else
 
 
 
-exec abastecimento @Operador_Fk = 1, @matricula = '12-46783-LA', @bomba_Fk = 2, @litro= '80L'
+exec abastecimento @Operador_Fk = 1, @matricula = '12-46783-LA', @bom        ba_Fk = 2, @litro= '80L'
 
 
 insert into abasteciimentos(Operador_Fk,Bomba_Fk, Litro) 

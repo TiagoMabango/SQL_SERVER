@@ -115,7 +115,7 @@ begin
 
  exec ListaAlunos
 
- backup database escola
+backup database escola
 	to disk = 'C:\Arquivos\escola.bak';
 go
 
