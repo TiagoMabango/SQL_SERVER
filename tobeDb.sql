@@ -94,7 +94,6 @@ select * from returna_tarefa(2)
 --select
 select *  from tarefas;
 
-
 --transaction
 
 begin transaction;
