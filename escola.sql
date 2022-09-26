@@ -13,6 +13,36 @@ create table cursos(
 	data_actualizacao datetime
 )
 
+create table salas(
+	id smallint primary key identity,
+	sala smallint not null,
+	data_cadastro datetime default current_timestamp,
+	data_actualizacao datetime
+)
+
+select * from salas
+
+insert into salas(sala) values(01)
+insert into salas(sala) values(02)
+insert into salas(sala) values(03)
+insert into salas(sala) values(04)
+insert into salas(sala) values(05)
+insert into salas(sala) values(06)
+insert into salas(sala) values(07)
+insert into salas(sala) values(08)
+insert into salas(sala) values(09)
+insert into salas(sala) values(10)
+insert into salas(sala) values(11)
+insert into salas(sala) values(12)
+insert into salas(sala) values(13)
+insert into salas(sala) values(14)
+insert into salas(sala) values(15)
+insert into salas(sala) values(16)
+insert into salas(sala) values(17)
+insert into salas(sala) values(18)
+insert into salas(sala) values(19)
+insert into salas(sala) values(20)
+
 insert into cursos(nome, requisito, carga_horaria, preco) values('CSS','Básico de HTML', 3, 30000)
 insert into cursos(nome, requisito, carga_horaria, preco) values('HTML','Conhecimento sobre internet', 1, 10000)
 insert into cursos(nome, requisito, carga_horaria, preco) values('SQL','Básico de HTML e CSS', 2, 30000)
@@ -106,7 +136,9 @@ insert into matriculas(aluno_fk, turma_fk, data_matricula) values(3,2, '10/8/202
 alter procedure ListaAlunos
 as
 begin
-	select   matriculas.aluno_fk as Id, alunos.nome  as Nome ,  count( turmas.cursos_fk ) as TotalDeCursos  , cursos.nome as NomeDoCurso from matriculas 
+	select   matriculas.aluno_fk as Id, alunos.nome  
+	as Nome ,  count( turmas.cursos_fk ) as TotalDeCursos  , 
+	cursos.nome as NomeDoCurso from matriculas 
 	join turmas on matriculas.turma_fk = turmas.id
 	join alunos on matriculas.aluno_fk = alunos.id 
 	join cursos on turmas.cursos_fk = cursos.id
