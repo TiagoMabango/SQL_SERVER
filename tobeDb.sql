@@ -7,7 +7,6 @@ use tobe
 --drop
 drop database tobe
 
-
 --create table
 create table funcionarios(
 	ID smallint primary key identity,
