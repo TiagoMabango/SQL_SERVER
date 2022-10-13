@@ -27,6 +27,17 @@ create table tarefas(
 	updated_at datetime
 )
 
+create table demissoes(
+	ID smallint primary key identity,
+	empployee_fk_d  smallint,
+	constraint empployee_fk_d foreign key(empployee_fk_d)
+	references funcionarios (ID) on delete cascade,
+	motivo varchar(255),
+	Created_at datetime default current_timestamp,
+	updated_at datetime
+)
+
+
 --insert into
 insert into funcionarios (FirstName , LastName) values ('Tiago', 'Mabango')
 insert into funcionarios (FirstName , LastName) values ('António', 'Mabango')
@@ -93,6 +104,8 @@ select * from returna_tarefa(2)
 
 --select
 select *  from tarefas;
+
+select * from demissoes
 
 --transaction
 
