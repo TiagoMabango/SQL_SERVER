@@ -45,7 +45,7 @@ insert into funcionarios (FirstName , LastName) values ('António', 'Mabango')
 insert into tarefas (task, empployee_fk) values('Terminar o sistema do MIREX',1);
 insert into tarefas (task, empployee_fk) values('Terminar o sistema do Iventário',2);
 
-
+insert into demissoes(empployee_fk_d,motivo) values(5,'Fez um update sem where')
 --select
 select * from tarefas 
 
