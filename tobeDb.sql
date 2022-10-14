@@ -38,7 +38,7 @@ create table demissoes(
 
 
 --insert into
-insert into funcionarios (FirstName , LastName) values ('José', 'Joaquim')
+insert into funcionarios (FirstName , LastName) values ('Claudio', 'Joaquim')
 insert into funcionarios (FirstName , LastName) values ('Paulo', 'Napoleão')
 
 insert into tarefas (task, empployee_fk) values('Terminar o sistema do MIREX',1);
@@ -48,7 +48,7 @@ insert into demissoes(empployee_fk_d,motivo) values(5,'Fez um update sem where')
 insert into demissoes(empployee_fk_d,motivo) values(6,'Fez um update sem where')
 insert into demissoes(empployee_fk_d,motivo) values(7,'Fez um update sem where')
 --select
-select * from tarefas 
+select * from funcionarios 
 
 select funcionarios.FirstName as primeiro_nome,
 funcionarios.LastName as ultimo_nome , 
