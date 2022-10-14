@@ -38,8 +38,8 @@ create table demissoes(
 
 
 --insert into
-insert into funcionarios (FirstName , LastName) values ('Tiago', 'Mabango')
-insert into funcionarios (FirstName , LastName) values ('António', 'Mabango')
+insert into funcionarios (FirstName , LastName) values ('José', 'Joaquim')
+insert into funcionarios (FirstName , LastName) values ('Paulo', 'Napoleão')
 
 insert into tarefas (task, empployee_fk) values('Terminar o sistema do MIREX',1);
 insert into tarefas (task, empployee_fk) values('Terminar o sistema do Iventário',2);
